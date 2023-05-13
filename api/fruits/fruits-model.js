@@ -6,23 +6,23 @@ const db = knex({
     filename: './data/produce.db3'
   },
   useNullAsDefault: true
-});
+})
 
-function getAll() {
-  return db('fruits');
+function getAll () {
+  return db('fruits')
 }
 
-function getById(id) {
-  return db('fruits').where('id', id).first();
+function getById (id) {
+  return db('fruits').where('fruit_id', id).first()
 }
 
-async function create(fruit) {
-  const [id] = await db('fruits').insert(fruit);
-  return getById(id);
+async function create (fruit) {
+  const [id] = await db('fruits').insert(fruit)
+  return getById(id)
 }
 
 module.exports = {
   getAll,
   getById,
-  create,
-};
+  create
+}
